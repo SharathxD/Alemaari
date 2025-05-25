@@ -44,8 +44,8 @@ const Navbar = ({
     <div className="bg-white flex items-center justify-between px-10 py-2 drop-shadow sticky top-0 z-10">
       <Link to={"/"}>
         <h1 className="font-bold text-2xl sm:text-2xl flex flex-wrap">
-          <span className="text-blue-400">Travel</span>
-          <span className="text-blue-800">Diary</span>
+          <span className="text-blue-400">Ale</span>
+          <span className="text-blue-800">Maari</span>
         </h1>
       </Link>
 
