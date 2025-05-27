@@ -34,6 +34,39 @@ const Home = () => {
     data: null,
   })
 
+  const dayPickerStyles = {
+    caption: { color: '#8B4513' },
+    head_cell: { color: '#D2691E' },
+    table: { color: '#8B4513' },
+    cell: { color: '#8B4513' },
+    nav_button: { color: '#D2691E' },
+    nav_button_previous: { color: '#D2691E' },
+    nav_button_next: { color: '#D2691E' },
+    day_today: { color: '#8B4513', fontWeight: 'bold' },
+    day_selected: { 
+      backgroundColor: '#8B4513',
+      color: '#F5E6D3',
+      fontWeight: 'bold'
+    },
+    day_disabled: { color: '#D2691E40' },
+    day_outside: { color: '#D2691E80' },
+    day_hidden: { visibility: 'hidden' },
+    day_range_middle: { 
+      backgroundColor: '#D2691E20',
+      color: '#8B4513'
+    },
+    day_range_end: { 
+      backgroundColor: '#8B4513',
+      color: '#F5E6D3',
+      fontWeight: 'bold'
+    },
+    day_range_start: { 
+      backgroundColor: '#8B4513',
+      color: '#F5E6D3',
+      fontWeight: 'bold'
+    }
+  }
+
   // Get all travel stories
   const getAllTravelStories = async () => {
     try {
@@ -169,7 +202,7 @@ const Home = () => {
         handleClearSearch={handleClearSearch}
       />
 
-      <div className="container mx-auto py-10">
+      <div className="min-h-screen bg-[#FFF8DC] container mx-auto py-10">
         <FilterInfoTitle
           filterType={filterType}
           filterDate={dateRange}
@@ -217,14 +250,133 @@ const Home = () => {
           </div>
 
           <div className="w-[320px]">
-            <div className="bg-white border border-slate-200 shadow-lg shadow-slate-200/60 rounded-lg">
-              <div className="p-3">
+            <div className="bg-[#F5E6D3] border border-[#D2691E]/20 shadow-lg shadow-[#D2691E]/10 rounded-lg">
+              <div className="p-4">
+                <style>
+                  {`
+                    .rdp-day:focus {
+                      background-color: rgba(139, 69, 19, 0.1) !important;
+                      color: #8B4513 !important;
+                      outline: none !important;
+                    }
+                    .rdp-day_selected {
+                      background-color: #A0522D !important;
+                      color: #FFEFD5 !important;
+                    }
+                    .rdp-day_selected:hover {
+                      background-color: #8B4513 !important;
+                      color: #FFEFD5 !important;
+                    }
+                    .rdp-day_range_start,
+                    .rdp-day_range_end {
+                      background-color: #A0522D !important;
+                      color: #FFEFD5 !important;
+                    }
+                    .rdp-day_range_middle {
+                      background-color: rgba(160, 82, 45, 0.15) !important;
+                      color: #8B4513 !important;
+                    }
+                    .rdp-day_range_middle:hover {
+                      background-color: rgba(160, 82, 45, 0.25) !important;
+                      color: #8B4513 !important;
+                    }
+                  `}
+                </style>
                 <DayPicker
                   captionLayout="dropdown"
                   mode="range"
                   selected={dateRange}
                   onSelect={handleDayClick}
                   pagedNavigation
+                  className="rdp !bg-[#F5E6D3]"
+                  modifiers={{
+                    selected: dateRange,
+                  }}
+                  modifiersStyles={{
+                    selected: {
+                      backgroundColor: '#A0522D',
+                      color: '#FFEFD5',
+                      fontWeight: '600'
+                    },
+                    today: {
+                      color: '#8B4513',
+                      fontWeight: '600',
+                      backgroundColor: 'rgba(139, 69, 19, 0.1)'
+                    },
+                    range_start: {
+                      color: '#FFEFD5',
+                      backgroundColor: '#A0522D',
+                      fontWeight: '600'
+                    },
+                    range_end: {
+                      color: '#FFEFD5',
+                      backgroundColor: '#A0522D',
+                      fontWeight: '600'
+                    },
+                    range_middle: {
+                      color: '#8B4513',
+                      backgroundColor: 'rgba(160, 82, 45, 0.15)'
+                    }
+                  }}
+                  styles={{
+                    months: {
+                      padding: '0.5rem'
+                    },
+                    caption: { 
+                      color: '#8B4513',
+                      fontSize: '1rem',
+                      padding: '0.5rem'
+                    },
+                    caption_label: {
+                      fontWeight: '600',
+                      color: '#8B4513'
+                    },
+                    nav_button: { 
+                      color: '#A0522D',
+                      border: '1px solid rgba(160, 82, 45, 0.2)',
+                      borderRadius: '0.375rem',
+                      padding: '0.25rem',
+                      margin: '0 0.25rem',
+                      '&:hover': {
+                        backgroundColor: 'rgba(160, 82, 45, 0.1)'
+                      }
+                    },
+                    nav_button_previous: { 
+                      color: '#A0522D'
+                    },
+                    nav_button_next: { 
+                      color: '#A0522D'
+                    },
+                    head_cell: { 
+                      color: '#A0522D',
+                      fontSize: '0.875rem',
+                      fontWeight: '600',
+                      padding: '0.5rem'
+                    },
+                    cell: { 
+                      color: '#8B4513',
+                      padding: '0.375rem',
+                      fontWeight: '500',
+                      borderRadius: '0.375rem'
+                    },
+                    day: {
+                      color: '#8B4513',
+                      fontWeight: '500',
+                      width: '2.25rem',
+                      height: '2.25rem',
+                      margin: '0.125rem',
+                      borderRadius: '0.375rem',
+                      transition: 'all 150ms ease-in-out',
+                      '&:hover': {
+                        backgroundColor: 'rgba(160, 82, 45, 0.1)'
+                      },
+                      '&:focus': {
+                        backgroundColor: 'rgba(160, 82, 45, 0.1)',
+                        color: '#8B4513',
+                        outline: 'none'
+                      }
+                    }
+                  }}
                 />
               </div>
             </div>
@@ -238,12 +390,12 @@ const Home = () => {
         onRequestClose={() => {}}
         style={{
           overlay: {
-            backgroundColor: "rgba(0,0,0,0.2)",
+            backgroundColor: "rgba(139, 69, 19, 0.1)",
             zIndex: 999,
           },
         }}
         appElement={document.getElementById("root")}
-        className="w-[80vw] md:w-[40%] h-[80vh] bg-white rounded-lg mx-auto mt-14 p-5 overflow-y-scroll scrollbar z-50"
+        className="w-[80vw] md:w-[40%] h-[80vh] bg-[#F5E6D3] rounded-lg mx-auto mt-14 p-5 overflow-y-scroll scrollbar z-50"
       >
         <AddEditTravelStory
           storyInfo={openAddEditModal.data}
@@ -261,12 +413,12 @@ const Home = () => {
         onRequestClose={() => {}}
         style={{
           overlay: {
-            backgroundColor: "rgba(0,0,0,0.2)",
+            backgroundColor: "rgba(139, 69, 19, 0.1)",
             zIndex: 999,
           },
         }}
         appElement={document.getElementById("root")}
-        className="w-[80vw] md:w-[40%] h-[80vh] bg-white rounded-lg mx-auto mt-14 p-5 overflow-y-scroll scrollbar z-50"
+        className="w-[80vw] md:w-[40%] h-[80vh] bg-[#F5E6D3] rounded-lg mx-auto mt-14 p-5 overflow-y-scroll scrollbar z-50"
       >
         <ViewTravelStory
           storyInfo={openViewModal.data || null}
@@ -284,12 +436,12 @@ const Home = () => {
       </Modal>
 
       <button
-        className="w-16 h-16 flex items-center justify-center rounded-full bg-[#05b6d3] hover:bg-cyan-400 fixed right-10 bottom-10"
+        className="w-16 h-16 flex items-center justify-center rounded-full bg-[#8B4513] hover:bg-[#D2691E] fixed right-10 bottom-10"
         onClick={() => {
           setOpenAddEditModal({ isShown: true, type: "add", data: null })
         }}
       >
-        <IoMdAdd className="text-[32px] text-white" />
+        <IoMdAdd className="text-[32px] text-[#F5E6D3]" />
       </button>
 
       <ToastContainer />

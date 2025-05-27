@@ -154,7 +154,6 @@ const AddEditTravelStory = ({
       }
 
       // updating story
-
       const response = await axiosInstance.post(
         "/travel-story/edit-story/" + storyId,
         postData
@@ -173,14 +172,14 @@ const AddEditTravelStory = ({
   return (
     <div className="relative">
       <div className="flex items-center justify-between">
-        <h5 className="text-xl font-medium text-slate-700">
+        <h5 className="text-xl font-medium text-[#8B4513]">
           {type === "add" ? "Add Story" : "Update Story"}
         </h5>
 
         <div>
-          <div className="flex items-center gap-3 bg-cyan-50/50 p-2 rounded-l-lg">
+          <div className="flex items-center gap-3 bg-[#F5E6D3] p-2 rounded-l-lg">
             {type === "add" ? (
-              <button class="btn-small" onClick={handleAddOrUpdateClick}>
+              <button className="btn-small" onClick={handleAddOrUpdateClick}>
                 <IoMdAdd className="text-lg" /> ADD STORY
               </button>
             ) : (
@@ -189,14 +188,14 @@ const AddEditTravelStory = ({
                   <MdOutlineUpdate className="text-lg" /> UPDATE STORY
                 </button>
 
-                <button className="btn-small btn-delete">
+                <button className="btn-small btn-delete" onClick={onDeleteClick}>
                   <MdOutlineDeleteOutline className="text-lg" /> DELETE STORY
                 </button>
               </>
             )}
 
-            <button class="" onClick={onClose}>
-              <IoMdClose className="text-xl text-slate-400" />
+            <button className="" onClick={onClose}>
+              <IoMdClose className="text-xl text-[#D2691E]" />
             </button>
           </div>
 
@@ -212,7 +211,7 @@ const AddEditTravelStory = ({
 
           <input
             type="text"
-            className="text-2xl text-slate-900 outline-none"
+            className="text-2xl text-[#8B4513] outline-none border-4 border-[#D2691E]/20 rounded-md px-3 py-2 focus:border-[#8B4513]/20 transition-colors"
             placeholder="Once Upon A Time..."
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -222,18 +221,20 @@ const AddEditTravelStory = ({
             <DateSelector date={visitedDate} setDate={setVisitedDate} />
           </div>
 
-          <ImageSelector
-            image={storyImg}
-            setImage={setStoryImg}
-            handleDeleteImage={handleDeleteStoryImage}
-          />
+          <div className="border-4 border-[#D2691E]/20 rounded-md overflow-hidden">
+            <ImageSelector
+              image={storyImg}
+              setImage={setStoryImg}
+              handleDeleteImage={handleDeleteStoryImage}
+            />
+          </div>
 
           <div className="flex flex-col gap-2 mt-4">
             <label className="input-label">STORY</label>
 
             <textarea
               type="text"
-              className="text-sm text-slate-950 outline-none bg-slate-100 p-2 rounded-sm"
+              className="text-sm text-[#8B4513] outline-none bg-[#F5E6D3] p-3 rounded-md border-4 border-[#D2691E]/20 focus:border-[#8B4513]/20 transition-colors"
               placeholder="Your Story"
               rows={10}
               value={story}

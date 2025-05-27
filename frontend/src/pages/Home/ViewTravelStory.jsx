@@ -14,7 +14,7 @@ const ViewTravelStory = ({
     <div className="relative">
       <div className="flex items-center justify-end">
         <div>
-          <div className="flex items-center gap-3 bg-cyan-50/50 p-2 rounded-l-lg">
+          <div className="flex items-center gap-3 bg-[#F5E6D3] p-2 rounded-l-lg">
             <button className="btn-small" onClick={onEditClick}>
               <MdOutlineUpdate className="text-lg" /> UPDATE STORY
             </button>
@@ -24,7 +24,7 @@ const ViewTravelStory = ({
             </button>
 
             <button className="cursor-pointer" onClick={onClose}>
-              <IoMdClose className="text-lg text-slate-400" />
+              <IoMdClose className="text-lg text-[#D2691E]" />
             </button>
           </div>
         </div>
@@ -32,16 +32,16 @@ const ViewTravelStory = ({
 
       <div>
         <div className="flex-1 flex flex-col gap-2 py-4">
-          <h1 className="text-2xl text-slate-950">
+          <h1 className="text-2xl text-[#8B4513]">
             {storyInfo && storyInfo.title}
           </h1>
 
           <div className="flex items-center justify-between gap-3">
-            <span className="text-xs text-slate-500">
+            <span className="text-xs text-[#D2691E]">
               {storyInfo && moment(storyInfo.visitedDate).format("Do MMM YYYY")}
             </span>
 
-            <div className="inline-flex items-center gap-2 text-[13px] text-cyan-600 bg-cyan-200/40 rounded-sm px-2 py-1">
+            <div className="inline-flex items-center gap-2 text-[13px] text-[#8B4513] bg-[#D2691E]/20 rounded-sm px-2 py-1">
               <FaLocationDot className="text-sm" />
 
               {storyInfo &&
@@ -61,7 +61,7 @@ const ViewTravelStory = ({
         />
 
         <div className="mt-4">
-          <p className="text-sm text-slate-950 leading-6 text-justify whitespace-pre-line">
+          <p className="text-sm text-[#8B4513] leading-6 text-justify whitespace-pre-line">
             {storyInfo.story}
           </p>
         </div>

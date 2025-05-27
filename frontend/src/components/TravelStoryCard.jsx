@@ -17,7 +17,7 @@ const TravelStoryCard = ({
   console.log(isFavourite)
 
   return (
-    <div className="border border-slate-200 rounded-lg overflow-hidden bg-white hover:shadow-lg hover:shadow-slate-200 transition-all ease-in-out relative cursor-pointer">
+    <div className="border border-[#D2691E]/20 rounded-lg overflow-hidden bg-[#F5E6D3] hover:shadow-lg hover:shadow-[#D2691E]/20 transition-all ease-in-out relative cursor-pointer">
       <img
         src={imageUrl}
         alt={title}
@@ -26,12 +26,12 @@ const TravelStoryCard = ({
       />
 
       <button
-        className="w-12 h-12 flex items-center justify-center bg-white/40 rounded-lg border border-white/30 absolute top-4 right-4"
+        className="w-12 h-12 flex items-center justify-center bg-[#F5E6D3]/40 rounded-lg border border-[#F5E6D3]/30 absolute top-4 right-4"
         onClick={onFavouriteClick}
       >
         <FaHeart
           className={`icon-btn ${
-            isFavourite ? "text-red-500" : "text-white"
+            isFavourite ? "text-red-500" : "text-[#F5E6D3]"
           } hover:text-red-500`}
         />
       </button>
@@ -39,17 +39,17 @@ const TravelStoryCard = ({
       <div className="p-4" onClick={onClick}>
         <div className="flex items-center gap-3">
           <div className="flex-1">
-            <h6 className="text-[16px] font-medium">{title}</h6>
+            <h6 className="text-[16px] font-medium text-[#8B4513]">{title}</h6>
 
-            <span className="text-xs text-slate-500">
+            <span className="text-xs text-[#D2691E]">
               {date ? moment(date).format("Do MMM YYYY") : "-"}
             </span>
           </div>
         </div>
 
-        <p className="text-sm text-slate-600 mt-2">{story?.slice(0, 60)}</p>
+        <p className="text-sm text-[#8B4513]/80 mt-2">{story?.slice(0, 60)}</p>
 
-        <div className="inline-flex items-center gap-2 text-[13px] text-cyan-600 bg-cyan-200/40 rounded mt-3 px-2 py-1">
+        <div className="inline-flex items-center gap-2 text-[13px] text-[#8B4513] bg-[#D2691E]/10 rounded mt-3 px-2 py-1">
           <FaLocationDot className="text-sm" />
 
           {visitedLocation.map((item, index) =>

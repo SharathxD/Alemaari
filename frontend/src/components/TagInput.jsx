@@ -34,7 +34,7 @@ const TagInput = ({ tags, setTags }) => {
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="flex items-center gap-2 text-sm text-cyan-600 bg-cyan-200/40 px-3 py-1 rounded-sm"
+              className="flex items-center gap-2 text-sm text-[#8B4513] bg-[#D2691E]/20 px-3 py-1 rounded-sm"
             >
               <FaLocationDot className="text-sm" /> {tag}
               <button
@@ -52,17 +52,17 @@ const TagInput = ({ tags, setTags }) => {
         <input
           type="text"
           value={inputValue}
-          className="text-sm bg-transparent border border-slate-200 px-3 py-2 rounded-sm outline-none"
+          className="text-sm bg-transparent border border-[#D2691E]/20 px-3 py-2 rounded-sm outline-none text-[#8B4513]"
           placeholder="Add Locations"
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
         />
 
         <button
-          className="w-8 h-8 flex items-center justify-center rounded-sm border border-cyan-500 hover:bg-cyan-500"
+          className="w-8 h-8 flex items-center justify-center rounded-sm border border-[#8B4513] hover:bg-[#8B4513]"
           onClick={addNewTag}
         >
-          <IoMdAdd className="text-2xl text-cyan-500 hover:text-white" />
+          <IoMdAdd className="text-2xl text-[#8B4513] hover:text-[#F5E6D3]" />
         </button>
       </div>
     </div>

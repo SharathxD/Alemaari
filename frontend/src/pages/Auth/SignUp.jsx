@@ -68,7 +68,7 @@ const SignUp = () => {
   }, [currentUser])
 
   return (
-    <div className="h-screen bg-cyan-50 overflow-hidden relative">
+    <div className="h-screen bg-[#FFF8DC] overflow-hidden relative">
       <div className="login-ui-box right-10 -top-40" />
 
       <div className="container h-screen flex items-center justify-center px-20 mx-auto">
@@ -84,9 +84,9 @@ const SignUp = () => {
           </div>
         </div>
 
-        <div className="w-2/4 h-[75vh] bg-white rounded-r-lg relative p-16 shadow-lg shadow-cyan-200/20">
+        <div className="w-2/4 h-[75vh] bg-[#F5E6D3] rounded-r-lg relative p-16 shadow-lg shadow-[#D2691E]/20">
           <form onSubmit={handleSignUp}>
-            <h4 className="text-2xl font-semibold mb-7">Create Your Account</h4>
+            <h4 className="text-2xl font-semibold text-[#8B4513] mb-7">Create Your Account</h4>
 
             <input
               type="text"
@@ -123,7 +123,7 @@ const SignUp = () => {
               </button>
             )}
 
-            <p className="text-xs text-slate-500 text-center my-4">Or</p>
+            <p className="text-xs text-[#8B4513] text-center my-4">Or</p>
 
             <button
               type="submit"

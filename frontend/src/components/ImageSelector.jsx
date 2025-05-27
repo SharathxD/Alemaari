@@ -52,14 +52,14 @@ const ImageSelector = ({ image, setImage, handleDeleteImage }) => {
 
       {!image ? (
         <button
-          className="w-full h-[220px] flex flex-col items-center justify-center gap-4 bg-slate-50 rounded-sm border border-slate-200/50"
+          className="w-full h-[220px] flex flex-col items-center justify-center gap-4 bg-[#F5E6D3] rounded-sm border border-[#D2691E]/20"
           onClick={() => onChooseFile()}
         >
-          <div className="w-14 h-14 flex items-center justify-center bg-cyan-100 rounded-full border border-cyan-100">
-            <BsUpload className="text-3xl font-bold text-cyan-500" />
+          <div className="w-14 h-14 flex items-center justify-center bg-[#D2691E]/20 rounded-full border border-[#D2691E]/20">
+            <BsUpload className="text-3xl font-bold text-[#8B4513]" />
           </div>
 
-          <p className="text-sm text-slate-500">Browse image files to upload</p>
+          <p className="text-sm text-[#8B4513]">Browse image files to upload</p>
         </button>
       ) : (
         <div className="w-full relative">
